@@ -1,5 +1,6 @@
-streamlit
-easyocr
-torch
-# opencv-python-headless==4.5.5.62
+streamlit==1.26.0
+easyocr==1.7.1
+torch==2.0.1+cpu
+torchvision==0.15.2+cpu
 Pillow
+numpy
