@@ -1,5 +1,4 @@
-streamlit==1.46.1
-easyocr==1.7.2
-torch==2.5.1+cpu
-opencv-python-headless==4.11.0.86
---extra-index-url https://download.pytorch.org/whl/cpu
+streamlit==1.26.0
+easyocr==1.7.1
+torch==2.2.2
+opencv-python-headless==4.8.0.76
