@@ -1,5 +1,6 @@
 streamlit
-easyocr
+easyocr==1.7.2
+torch==2.0.1
+opencv-python-headless
 Pillow
 requests
-torch
