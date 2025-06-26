@@ -1,5 +1,5 @@
-streamlit==1.26.0
-easyocr==1.7.1
+streamlit
+easyocr
 torch==2.0.1+cpu
 torchvision==0.15.2+cpu
 Pillow
