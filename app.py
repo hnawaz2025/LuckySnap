@@ -9,12 +9,13 @@ from lottery_api import get_latest_powerball, get_latest_megamillions
 @st.cache_resource
 def get_reader():
     # return easyocr.Reader(['en'], gpu=False)
-    return easyocr.Reader(['en'], model_storage_directory='models')
+    return easyocr.Reader(['en'], model_storage_directory='models', download_enabled=False)
 
 reader = get_reader()
 
 st.set_page_config(page_title="Lottery Ticket Checker", page_icon="🎟️")
 st.title("🎟️ Lottery Ticket Checker")
+
 
 # Step 1: Select game type
 game_type = st.selectbox("Select Lottery Game", ["Mega Millions", "Powerball"])
