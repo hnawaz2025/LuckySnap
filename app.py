@@ -11,8 +11,7 @@ import os
 @st.cache_resource
 def get_reader():
     # return easyocr.Reader(['en'], gpu=False)
-    models_dir = os.path.join(os.path.dirname(__file__), "models")
-    return easyocr.Reader(['en'], model_storage_directory=models_dir, download_enabled=False)
+    return easyocr.Reader(['en'], download_enabled=True)
 
 reader = get_reader()
 
