@@ -8,8 +8,6 @@ from lottery_api import get_latest_powerball, get_latest_megamillions
 import os
 
 st.set_page_config(page_title="Lottery Ticket Checker", page_icon="🎟️")
-st.title("🎟️ Lottery Ticket Checker")
-
 @st.cache_resource
 def get_reader():
     # return easyocr.Reader(['en'], gpu=False)
