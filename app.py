@@ -5,11 +5,13 @@ import tempfile
 import time
 from parse_lottery import parse_ticket
 from lottery_api import get_latest_powerball, get_latest_megamillions
+import os
 
 @st.cache_resource
 def get_reader():
     # return easyocr.Reader(['en'], gpu=False)
-    return easyocr.Reader(['en'], model_storage_directory='models', download_enabled=False)
+    models_dir = os.path.join(os.path.dirname(__file__), "models")
+    return easyocr.Reader(['en'], model_storage_directory=models_dir, download_enabled=False)
 
 reader = get_reader()
 
