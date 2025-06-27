@@ -6,12 +6,7 @@ import time
 from parse_lottery import parse_ticket
 from lottery_api import get_latest_powerball, get_latest_megamillions
 import os
-import subprocess
 
-
-# Force LFS pull (this is a workaround for Streamlit Cloud not pulling LFS files)
-subprocess.run(["git", "lfs", "install"], check=True)
-subprocess.run(["git", "lfs", "pull"], check=True)
 
 @st.cache_resource
 def get_reader():
