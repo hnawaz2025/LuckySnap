@@ -8,7 +8,8 @@ from lottery_api import get_latest_powerball, get_latest_megamillions
 
 @st.cache_resource
 def get_reader():
-    return easyocr.Reader(['en'], gpu=False)
+    # return easyocr.Reader(['en'], gpu=False)
+    return easyocr.Reader(['en'], model_storage_directory='models')
 
 reader = get_reader()
 
