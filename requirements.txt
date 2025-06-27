@@ -1,3 +1,4 @@
-streamlit
-easyocr
-Pillow
+streamlit==1.26.0
+easyocr==1.7.1
+torch==2.5.1
+opencv-python-headless==4.11.0.86
