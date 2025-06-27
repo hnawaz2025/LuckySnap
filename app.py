@@ -12,7 +12,7 @@ st.title("🎟️ Lottery Ticket Checker")
 @st.cache_resource
 def get_reader():
     # return easyocr.Reader(['en'], gpu=False)
-    return easyocr.Reader(['en'], download_enabled=True)
+    return easyocr.Reader(['en'], gpu=False)
 
 reader = get_reader()
 
