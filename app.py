@@ -143,7 +143,7 @@ try:
     st.set_page_config(page_title="Lottery Ticket Checker", page_icon="🎟️")
     st.title("🎟️ Lottery Ticket Checker")
 
-    @st.cache_resource
+    # @st.cache_resource
     def get_reader():
         # return easyocr.Reader(['en'], gpu=False)
         ensure_model_file("models/craft_mlt_25k.pth","1irGU6W6Y0pUfy4FVm-Q1-QY1AQ1E4pf1")
