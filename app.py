@@ -28,7 +28,7 @@ def ensure_model_file(filename, url):
 for fname, link in MODEL_FILES.items():
     ensure_model_file(fname, link)
 
-st.set_page_config(page_title="🎯 Lottery Ticket Checker", page_icon="🎟️", layout="centered")
+st.set_page_config(page_title="Lottery Ticket Checker", page_icon="🎟️", layout="centered")
 st.markdown("""
     <h1 style='text-align: center; color: #4CAF50;'>🎟️ Lottery Ticket Checker</h1>
     <p style='text-align: center; font-size: 18px;'>Snap it. Check it. Win it!</p>
