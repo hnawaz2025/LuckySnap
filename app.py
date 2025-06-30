@@ -134,8 +134,7 @@ except Exception as e:
     st.error("🔥 Failed to import required modules.")
     st.exception(e)
     st.stop()
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-MODEL_DIR = os.path.join(BASE_DIR, "models")
+MODEL_DIR = "/mount/src/luckysnap/models"
 
 def gdrive_url(file_id):
     return f"https://drive.google.com/uc?export=download&id={file_id}"
@@ -150,8 +149,8 @@ def ensure_model_file(filename: str, file_id: str):
     return full_path
 
 # Download models manually
-ensure_model_file("craft_mlt_25k.pth", "1irGU6W6Y0pUfy4FVm-Q1-QY1AQ1E4pf1")
-ensure_model_file("english_g2.pth", "1nlQ5bvqX7p6KztQaeVoGvePJsCPieTxS")
+ensure_model_file("craft_mlt_25k/craft_mlt_25k.pth", "1irGU6W6Y0pUfy4FVm-Q1-QY1AQ1E4pf1")
+ensure_model_file("english_g2/english_g2.pth", "1nlQ5bvqX7p6KztQaeVoGvePJsCPieTxS")
 
 st.set_page_config(page_title="Lottery Ticket Checker", page_icon="🎟️")
 st.write("✅ Checkpoint: Page config set")
