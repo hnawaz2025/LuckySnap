@@ -134,7 +134,7 @@ except Exception as e:
     st.error("🔥 Failed to import required modules.")
     st.exception(e)
     st.stop()
-MODEL_DIR = os.path.join(os.getcwd(), "models")
+MODEL_DIR = "/mount/src/luckysnap/models"
 os.makedirs(MODEL_DIR, exist_ok=True)
 
 def gdrive_url(file_id):
@@ -143,11 +143,8 @@ def gdrive_url(file_id):
 def ensure_model_file(filename: str, file_id: str):
     full_path = os.path.join(MODEL_DIR, filename)
     if not os.path.exists(full_path):
-        os.makedirs(os.path.dirname(full_path), exist_ok=True)
-        st.write(f"📥 Downloading {filename} from Google Drive...")
         url = f"https://drive.google.com/uc?id={file_id}"
         gdown.download(url, full_path, quiet=False)
-        st.success(f"✅ Downloaded {filename}")
     return full_path
 
 # Download models manually
