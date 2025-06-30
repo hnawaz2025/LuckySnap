@@ -123,7 +123,7 @@ import streamlit as st
 
 try:
     import os
-    import urllib.request
+    import gdown
     import easyocr
     import tempfile
     import time
@@ -145,7 +145,8 @@ def ensure_model_file(filename: str, file_id: str):
     if not os.path.exists(full_path):
         os.makedirs(os.path.dirname(full_path), exist_ok=True)
         st.write(f"📥 Downloading {filename} from Google Drive...")
-        urllib.request.urlretrieve(gdrive_url(file_id), full_path)
+        url = f"https://drive.google.com/uc?id={file_id}"
+        gdown.download(url, full_path, quiet=False)
         st.success(f"✅ Downloaded {filename}")
     return full_path
 
@@ -156,7 +157,7 @@ ensure_model_file("recognition/english_g2.pth", "1nlQ5bvqX7p6KztQaeVoGvePJsCPieT
 st.set_page_config(page_title="Lottery Ticket Checker", page_icon="🎟️")
 st.write("✅ Checkpoint: Page config set")
 
-# @st.cache_resource
+@st.cache_resource
 def get_reader():
     return easyocr.Reader(['en'], gpu=False, model_storage_directory=MODEL_DIR, download_enabled=False)
 
