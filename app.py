@@ -120,16 +120,17 @@
 #             else:
 #                 st.error(f"❌ Only {matched} numbers matched")
 import streamlit as st
-import easyocr
-from PIL import Image
-import tempfile
-import time
-from parse_lottery import parse_ticket
-from lottery_api import get_latest_powerball, get_latest_megamillions
-import urllib.request
-import os 
-import traceback
 try:
+    import easyocr
+    from PIL import Image
+    import tempfile
+    import time
+    from parse_lottery import parse_ticket
+    from lottery_api import get_latest_powerball, get_latest_megamillions
+    import urllib.request
+    import os 
+    import traceback
+
     def gdrive_url(file_id):
         return f"https://drive.google.com/uc?export=download&id={file_id}"
 
