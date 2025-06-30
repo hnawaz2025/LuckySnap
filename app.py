@@ -44,7 +44,7 @@ reader = get_reader()
 game_type = st.selectbox("Select Lottery Game", ["Mega Millions", "Powerball"])
 
 # Step 2: Upload image
-uploaded_file = st.file_uploader("Upload Your Ticket Image", type=["png", "jpg", "jpeg"])
+uploaded_file = st.file_uploader("📸 Upload Your Ticket Image", type=["png", "jpg", "jpeg"])
 
 if uploaded_file:
     image = Image.open(uploaded_file)
