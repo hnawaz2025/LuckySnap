@@ -155,7 +155,7 @@ ensure_model_file("english_g2.pth", "1nlQ5bvqX7p6KztQaeVoGvePJsCPieTxS")
 st.set_page_config(page_title="Lottery Ticket Checker", page_icon="🎟️")
 st.write("✅ Checkpoint: Page config set")
 
-@st.cache_resource
+# @st.cache_resource
 def get_reader():
     return easyocr.Reader(['en'], gpu=False, model_storage_directory=MODEL_DIR, download_enabled=False)
 
