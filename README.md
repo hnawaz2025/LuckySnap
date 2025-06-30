@@ -1,2 +1,40 @@
-# LuckySnap
+# 🎟️ LuckySnap – Lottery Ticket Checker
 AI-Powered Lottery Checking App
+
+**LuckySnap** is a Streamlit-based app that helps users scan and verify U.S. lottery tickets (Powerball & Mega Millions) using Optical Character Recognition (OCR). Upload your lottery ticket, and LuckySnap will extract the numbers, detect the draw date, and compare them against the latest official results to tell you if you're a winner!
+
+---
+
+## 🚀 Features
+
+- 📸 Upload ticket images (JPG, PNG)
+- 🤖 OCR-powered text extraction using EasyOCR
+- 🗓️ Auto-detect ticket draw date
+- 🎯 Match ticket numbers with latest Powerball & Mega Millions draws
+- 🌐 Runs locally or deployable on Streamlit Cloud
+
+---
+
+## 🧠 How It Works
+
+1. **Upload your lottery ticket** (photo or scanned image)
+2. **OCR extracts numbers & draw date**
+3. **Matches ticket details** against the latest official draw results using API
+4. **Returns match result** with visual feedback
+
+---
+
+## 🛠️ Setup Instructions
+
+### 🔧 Requirements
+
+- Python 3.9 or higher
+- pip
+
+### 📦 Installation
+
+```bash
+git clone https://github.com/yourusername/LuckySnap.git
+cd LuckySnap
+pip install -r requirements.txt
+
