@@ -136,21 +136,23 @@ except Exception as e:
     st.stop()
 MODEL_DIR = "/mount/src/luckysnap/models"
 os.makedirs(MODEL_DIR, exist_ok=True)
+# Define your model files with public shareable links
+MODEL_FILES = {
+    "craft_mlt_25k.pth": "https://drive.google.com/file/d/1irGU6W6Y0pUfy4FVm-Q1-QY1AQ1E4pf1/view?usp=sharing",
+    "english_g2.pth": "https://drive.google.com/file/d/1nlQ5bvqX7p6KztQaeVoGvePJsCPieTxS/view?usp=sharing"
+}
 
-def gdrive_url(file_id):
-    return f"https://drive.google.com/uc?export=download&id={file_id}"
+# Download the models if not already present
+def ensure_model_file(filename, url):
+    path = os.path.join(MODEL_DIR, filename)
+    if not os.path.exists(path):
+        st.write(f"📥 Downloading {filename}...")
+        gdown.download(url, path, fuzzy=True, quiet=False)
+        st.success(f"✅ Downloaded {filename}")
+    return path
 
-def ensure_model_file(filename: str, file_id: str):
-    full_path = os.path.join(MODEL_DIR, filename)
-    if not os.path.exists(full_path):
-        url = f"https://drive.google.com/uc?id={file_id}"
-        gdown.download(url, full_path, quiet=False)
-    return full_path
-
-# Download models manually
-ensure_model_file("detection/craft_mlt_25k.pth", "1irGU6W6Y0pUfy4FVm-Q1-QY1AQ1E4pf1")
-ensure_model_file("recognition/english_g2.pth", "1nlQ5bvqX7p6KztQaeVoGvePJsCPieTxS")
-
+for fname, link in MODEL_FILES.items():
+    ensure_model_file(fname, link)
 st.set_page_config(page_title="Lottery Ticket Checker", page_icon="🎟️")
 st.write("✅ Checkpoint: Page config set")
 
