@@ -210,7 +210,7 @@ if uploaded_file:
     try:
         if game_type == "Powerball":
             (official_numbers, special_ball), official_date = get_latest_powerball(return_with_date=True)
-            else:
+        else:
             (official_numbers, special_ball), official_date = get_latest_megamillions(return_with_date=True)
 
     except Exception as e:
