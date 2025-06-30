@@ -134,21 +134,20 @@ except Exception as e:
     st.error("🔥 Failed to import required modules.")
     st.exception(e)
     st.stop()
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_DIR = os.path.join(BASE_DIR, "models")
 
 def gdrive_url(file_id):
     return f"https://drive.google.com/uc?export=download&id={file_id}"
 
-def ensure_model_file(path: str, file_id: str):
-    try:
-        if not os.path.exists(path):
-            os.makedirs(os.path.dirname(path), exist_ok=True)
-            st.write(f"📥 Downloading {os.path.basename(path)} from Google Drive...")
-            urllib.request.urlretrieve(gdrive_url(file_id), path)
-            st.success(f"✅ Downloaded {os.path.basename(path)}")
-    except Exception as e:
-        st.error(f"🚨 Failed to download model {path}")
-        st.exception(e)
-        st.stop()
+def ensure_model_file(filename: str, file_id: str):
+    full_path = os.path.join(MODEL_DIR, filename)
+    if not os.path.exists(full_path):
+        os.makedirs(os.path.dirname(full_path), exist_ok=True)
+        st.write(f"📥 Downloading {filename} from Google Drive...")
+        urllib.request.urlretrieve(gdrive_url(file_id), full_path)
+        st.success(f"✅ Downloaded {filename}")
+    return full_path
 
 # Download models manually
 ensure_model_file("models/craft_mlt_25k/craft_mlt_25k.pth", "1irGU6W6Y0pUfy4FVm-Q1-QY1AQ1E4pf1")
@@ -159,8 +158,7 @@ st.write("✅ Checkpoint: Page config set")
 
 @st.cache_resource
 def get_reader():
-    model_dir = os.path.join(os.path.dirname(__file__),"models")
-    return easyocr.Reader(['en'], gpu=False, model_storage_directory=model_dir, download_enabled=False)
+    return easyocr.Reader(['en'], gpu=False, model_storage_directory=MODEL_DIR, download_enabled=False)
 
 try:
     reader = get_reader()
