@@ -20,10 +20,10 @@ def ensure_model_file(path: str, file_id: str):
         st.success(f"✅ Downloaded {os.path.basename(path)}")
 
 ensure_model_file(
-    "models/detection/craft_mlt_25k.pth",
+    "models/craft_mlt_25k.pth",
     "1irGU6W6Y0pUfy4FVm-Q1-QY1AQ1E4pf1")
 ensure_model_file(
-    "models/recognition/english_g2.pth",
+    "models/english_g2.pth",
     "1nlQ5bvqX7p6KztQaeVoGvePJsCPieTxS")
 
 st.set_page_config(page_title="Lottery Ticket Checker", page_icon="🎟️")
