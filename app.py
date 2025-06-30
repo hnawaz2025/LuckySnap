@@ -151,8 +151,8 @@ def ensure_model_file(path: str, file_id: str):
         st.stop()
 
 # Download models manually
-ensure_model_file("models/detection/craft_mlt_25k.pth", "1irGU6W6Y0pUfy4FVm-Q1-QY1AQ1E4pf1")
-ensure_model_file("models/recognition/english_g2.pth", "1nlQ5bvqX7p6KztQaeVoGvePJsCPieTxS")
+ensure_model_file("models/craft_mlt_25k.pth", "1irGU6W6Y0pUfy4FVm-Q1-QY1AQ1E4pf1")
+ensure_model_file("models/english_g2.pth", "1nlQ5bvqX7p6KztQaeVoGvePJsCPieTxS")
 
 st.set_page_config(page_title="Lottery Ticket Checker", page_icon="🎟️")
 st.write("✅ Checkpoint: Page config set")
