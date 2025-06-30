@@ -5,14 +5,34 @@ import tempfile
 import time
 from parse_lottery import parse_ticket
 from lottery_api import get_latest_powerball, get_latest_megamillions
-import os
+import urllib.request
+import os 
+
+
+def gdrive_url(file_id):
+    return f"https://drive.google.com/uc?export=download&id={file_id}"
+
+def ensure_model_file(path: str, file_id: str):
+    if not os.path.exists(path):
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        st.write(f"📥 Downloading {os.path.basename(path)} from Google Drive...")
+        urllib.request.urlretrieve(gdrive_url(file_id), path)
+        st.success(f"✅ Downloaded {os.path.basename(path)}")
+
+ensure_model_file(
+    "models/detection/craft_mlt_25k.pth",
+    "1irGU6W6Y0pUfy4FVm-Q1-QY1AQ1E4pf1")
+ensure_model_file(
+    "models/recognition/english_g2.pth",
+    "1nlQ5bvqX7p6KztQaeVoGvePJsCPieTxS")
 
 st.set_page_config(page_title="Lottery Ticket Checker", page_icon="🎟️")
 st.title("🎟️ Lottery Ticket Checker")
+
 @st.cache_resource
 def get_reader():
     # return easyocr.Reader(['en'], gpu=False)
-    return easyocr.Reader(['en'], gpu=False, model_storage_directory='models')
+    return easyocr.Reader(['en'], gpu=False, model_storage_directory='models', download_enabled=False)
 
 reader = get_reader()
 
