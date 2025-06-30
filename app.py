@@ -159,7 +159,7 @@ st.write("✅ Checkpoint: Page config set")
 
 @st.cache_resource
 def get_reader():
-    model_dir = os.path.abspath("models")
+    model_dir = os.path.join(os.path.dirname(__file__),"models")
     return easyocr.Reader(['en'], gpu=False, model_storage_directory=model_dir, download_enabled=False)
 
 try:
