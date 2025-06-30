@@ -10,19 +10,11 @@ AI-Powered Lottery Checking App
 - 📸 Upload ticket images (JPG, PNG)
 - 🤖 OCR-powered text extraction using EasyOCR
 - 🗓️ Auto-detect ticket draw date
-- 🎯 Match ticket numbers with latest Powerball & Mega Millions draws
+- 🎯 Match ticket numbers with latest Powerball & Mega Millions draws using API
 - 🌐 Runs locally or deployable on Streamlit Cloud
 
 ---
 
-## 🧠 How It Works
-
-1. **Upload your lottery ticket** (photo or scanned image)
-2. **OCR extracts numbers & draw date**
-3. **Matches ticket details** against the latest official draw results using API
-4. **Returns match result** with visual feedback
-
----
 
 ## 🛠️ Setup Instructions
 
