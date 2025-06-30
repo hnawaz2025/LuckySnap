@@ -177,6 +177,10 @@ uploaded_file = st.file_uploader("Upload Your Ticket Image", type=["png", "jpg",
 
 if uploaded_file:
     image = Image.open(uploaded_file)
+    # 🧠 Limit image size to avoid crashing OCR
+    MAX_DIM = 1280
+    image.thumbnail((MAX_DIM, MAX_DIM))
+
     st.image(image, caption="📸 Uploaded Ticket", use_container_width=True)
 
     with st.spinner("🔍 Extracting Text with OCR..."):
