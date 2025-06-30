@@ -19,19 +19,14 @@ def ensure_model_file(path: str, file_id: str):
         urllib.request.urlretrieve(gdrive_url(file_id), path)
         st.success(f"✅ Downloaded {os.path.basename(path)}")
 
-ensure_model_file(
-    "models/craft_mlt_25k.pth",
-    "1irGU6W6Y0pUfy4FVm-Q1-QY1AQ1E4pf1")
-ensure_model_file(
-    "models/english_g2.pth",
-    "1nlQ5bvqX7p6KztQaeVoGvePJsCPieTxS")
-
 st.set_page_config(page_title="Lottery Ticket Checker", page_icon="🎟️")
 st.title("🎟️ Lottery Ticket Checker")
 
 @st.cache_resource
 def get_reader():
     # return easyocr.Reader(['en'], gpu=False)
+    ensure_model_file("models/craft_mlt_25k.pth","1irGU6W6Y0pUfy4FVm-Q1-QY1AQ1E4pf1")
+    ensure_model_file("models/english_g2.pth","1nlQ5bvqX7p6KztQaeVoGvePJsCPieTxS")
     return easyocr.Reader(['en'], gpu=False, model_storage_directory='models', download_enabled=False)
 
 reader = get_reader()
