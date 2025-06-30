@@ -28,19 +28,12 @@ def ensure_model_file(filename, url):
 for fname, link in MODEL_FILES.items():
     ensure_model_file(fname, link)
 st.set_page_config(page_title="Lottery Ticket Checker", page_icon="🎟️")
-st.write("✅ Checkpoint: Page config set")
 
 @st.cache_resource
 def get_reader():
     return easyocr.Reader(['en'], gpu=False, model_storage_directory=MODEL_DIR, download_enabled=False)
 
-try:
-    reader = get_reader()
-    st.write("✅ Checkpoint: EasyOCR reader loaded")
-except Exception as e:
-    st.error("❌ Failed to initialize EasyOCR reader")
-    st.exception(e)
-    st.stop()
+reader = get_reader()
 
 # Step 1: Select game type
 game_type = st.selectbox("Select Lottery Game", ["Mega Millions", "Powerball"])
