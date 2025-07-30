@@ -8,7 +8,7 @@ Try the app now: https://luckysnap-qsmcva85w7ckmmg9oeydqd.streamlit.app
 
 ---
 
-## 🚀 Features
+## Features
 
 - 📸 Upload ticket images (JPG, PNG)
 - 🤖 OCR-powered text extraction using EasyOCR
@@ -19,14 +19,14 @@ Try the app now: https://luckysnap-qsmcva85w7ckmmg9oeydqd.streamlit.app
 ---
 
 
-## 🛠️ Setup Instructions
+## Setup Instructions
 
-### 🔧 Requirements
+### Requirements
 
 - Python 3.9 or higher
 - pip
 
-### 📦 Installation
+### Installation
 
 ```bash
 git clone https://github.com/yourusername/LuckySnap.git
